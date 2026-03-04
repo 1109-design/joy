@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joylyn's Midnight 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+height:100vh;
+background:radial-gradient(circle at top,#0a0f1f,#000814 60%),
+linear-gradient(135deg,#000814,#001d3d,#003566);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+color:#fff;
+position:relative;
+}
+
+/* Glow background animation */
+body::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:radial-gradient(circle,rgba(0,140,255,0.15),transparent 60%);
+animation:rotateGlow 25s linear infinite;
+}
+@keyframes rotateGlow{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
+
+.container{
+text-align:center;
+padding:60px 50px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(35px);
+border-radius:35px;
+border:1px solid rgba(0,170,255,0.35);
+box-shadow:0 0 80px rgba(0,140,255,0.35);
+max-width:850px;
+width:92%;
+z-index:2;
+}
+
+h1{
+font-size:3.2rem;
+font-weight:800;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:15px;
+}
+
+.subtitle{
+opacity:.8;
+margin-bottom:25px;
+}
+
+.names{
+color:#00c6ff;
+font-weight:600;
+letter-spacing:1px;
+margin-bottom:35px;
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:35px;
+margin-bottom:30px;
+}
+
+.time-box{
+background:rgba(0,119,255,0.2);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(0,170,255,0.5);
+box-shadow:0 0 30px rgba(0,140,255,0.4);
+min-width:120px;
+}
+
+.number{
+font-size:2.6rem;
+font-weight:700;
+color:#00c6ff;
+}
+
+.label{
+font-size:.9rem;
+opacity:.85;
+margin-top:6px;
+}
+
+/* Typing quotes */
+.quote-box{
+margin-top:25px;
+font-size:1.2rem;
+color:#ccefff;
+min-height:40px;
+border-right:2px solid #00c6ff;
+white-space:nowrap;
+overflow:hidden;
+margin-left:auto;
+margin-right:auto;
+width:fit-content;
+}
+
+/* Birthday message */
+.birthday-message{
+display:none;
+font-size:3rem;
+margin-top:30px;
+font-weight:800;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:fadeIn 2s ease forwards;
+}
+@keyframes fadeIn{
+0%{opacity:0;transform:scale(.5)}
+100%{opacity:1;transform:scale(1)}
+}
+
+/* Hearts */
+.heart{
+position:absolute;
+color:#00c6ff;
+font-size:20px;
+animation:floatHearts 8s linear infinite;
+opacity:.8;
+z-index:1;
+}
+@keyframes floatHearts{
+0%{transform:translateY(0) scale(1);opacity:0}
+20%{opacity:1}
+100%{transform:translateY(-110vh) scale(1.5);opacity:0}
+}
+
+/* Balloons */
+.balloon{
+position:absolute;
+bottom:-150px;
+width:50px;
+height:65px;
+border-radius:50%;
+animation:float 7s infinite ease-in;
+z-index:1;
+}
+@keyframes float{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-120vh);opacity:0}
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Happy Birthday Joylyn 💙</h1>
+<div class="subtitle">Counting down to the most beautiful soul in my world</div>
+<div class="names">Forever & Always, Tintin 💙</div>
+
+<div class="countdown" id="countdown">
+<div class="time-box"><div class="number" id="hours">00</div><div class="label">Hours</div></div>
+<div class="time-box"><div class="number" id="minutes">00</div><div class="label">Minutes</div></div>
+<div class="time-box"><div class="number" id="seconds">00</div><div class="label">Seconds</div></div>
+</div>
+
+<div class="quote-box" id="quote"></div>
+
+<div class="birthday-message" id="birthdayMessage">
+🎉 Happy Birthday Joylyn 💙 You Are My Forever – Tintin 🎉
+</div>
+</div>
+
+<script>
+const birthday = new Date();
+birthday.setHours(24,0,0,0);
+
+const hoursEl=document.getElementById('hours');
+const minutesEl=document.getElementById('minutes');
+const secondsEl=document.getElementById('seconds');
+const messageEl=document.getElementById('birthdayMessage');
+const countdownEl=document.getElementById('countdown');
+
+/* Countdown */
+function updateCountdown(){
+const now=new Date();
+const diff=birthday-now;
+
+if(diff<=0){
+countdownEl.style.display='none';
+messageEl.style.display='block';
+launchBalloons(60);
+clearInterval(interval);
+return;
+}
+
+const h=Math.floor(diff/(1000*60*60));
+const m=Math.floor((diff%(1000*60*60))/(1000*60));
+const s=Math.floor((diff%(1000*60))/1000);
+
+hoursEl.textContent=String(h).padStart(2,'0');
+minutesEl.textContent=String(m).padStart(2,'0');
+secondsEl.textContent=String(s).padStart(2,'0');
+}
+
+/* Typing Quotes */
+const quotes=[
+"You are the most beautiful chapter of my life 💙",
+"Loving you is the easiest thing I've ever done 💫",
+"Every second with you is magic ✨",
+"Joylyn, you are my answered prayer 💙",
+"Forever isn’t long enough with you 💍"
+];
+
+const quoteEl=document.getElementById("quote");
+let quoteIndex=0;
+let charIndex=0;
+let deleting=false;
+
+function typeEffect(){
+let current=quotes[quoteIndex];
+
+if(!deleting){
+quoteEl.textContent=current.substring(0,charIndex++);
+if(charIndex>current.length+15){deleting=true}
+}else{
+quoteEl.textContent=current.substring(0,charIndex--);
+if(charIndex===0){
+deleting=false;
+quoteIndex=(quoteIndex+1)%quotes.length;
+}
+}
+setTimeout(typeEffect,deleting?40:80);
+}
+
+typeEffect();
+
+/* Hearts */
+function createHearts(){
+const heart=document.createElement('div');
+heart.classList.add('heart');
+heart.innerHTML='💙';
+heart.style.left=Math.random()*100+'vw';
+heart.style.fontSize=(15+Math.random()*25)+'px';
+heart.style.animationDuration=(6+Math.random()*4)+'s';
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),10000);
+}
+setInterval(createHearts,500);
+
+/* Balloons */
+function launchBalloons(count){
+for(let i=0;i<count;i++){
+const balloon=document.createElement('div');
+balloon.classList.add('balloon');
+balloon.style.left=Math.random()*100+'vw';
+balloon.style.backgroundColor=`hsl(${200+Math.random()*60},90%,55%)`;
+balloon.style.animationDuration=(5+Math.random()*4)+'s';
+document.body.appendChild(balloon);
+}
+}
+
+const interval=setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
