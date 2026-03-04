@@ -15,40 +15,80 @@ font-size:16px;
 
 body{
 height:100vh;
+min-height:-webkit-fill-available;
 background:#000;
 display:flex;
 justify-content:center;
 align-items:center;
 overflow:hidden;
+overflow-y:auto;
 color:#fff;
 position:relative;
+padding:10px 0;
 }
 
 /* Mobile responsive */
 @media (max-width:768px){
 html{font-size:14px}
-.container{padding:40px 30px;width:95%;max-width:100%}
-h1{font-size:2.5rem}
-.countdown{gap:20px;flex-wrap:wrap}
-.time-box{min-width:100px;padding:20px}
-.number{font-size:2.2rem}
-.birthday-message{font-size:2.2rem}
-.love-message{font-size:1.1rem}
-.gift-box{font-size:4rem}
-.gift-message{font-size:1.3rem;padding:15px 25px}
-.photo-frame{width:80px;height:80px;margin:10px}
+.container{padding:30px 20px;width:96%;max-width:100%;border-radius:30px}
+h1{font-size:2.2rem;line-height:1.2}
+.subtitle{font-size:0.95rem}
+.names{font-size:0.95rem}
+.countdown{gap:15px;flex-wrap:nowrap}
+.time-box{min-width:90px;padding:18px 12px}
+.number{font-size:2rem}
+.label{font-size:0.8rem}
+.quote-box{font-size:1rem;max-width:90%}
+.birthday-message{font-size:2rem;line-height:1.3;padding:0 10px}
+.love-message{font-size:1.1rem;padding:0 15px}
+.gift-box{font-size:3.5rem;margin:25px 0}
+.arrow-pointer{font-size:2.5rem;top:-50px}
+.gift-message{font-size:1.2rem;padding:15px 25px;max-width:90%;margin-left:auto;margin-right:auto}
+.photo-frame{width:70px;height:70px;margin:8px}
+.photo-frame::before{font-size:2rem}
+.quiz-container{padding:20px 15px;margin-top:30px}
+.quiz-question{font-size:1.4rem;line-height:1.4}
+.quiz-btn{padding:12px 25px;font-size:1.1rem}
+.audio-toggle{width:50px;height:50px;font-size:1.5rem;top:15px;right:15px}
 }
 
 @media (max-width:480px){
+html{font-size:13px}
+.container{padding:25px 15px;width:98%}
+h1{font-size:1.8rem;margin-bottom:10px}
+.subtitle{font-size:0.85rem;margin-bottom:15px}
+.names{font-size:0.85rem;margin-bottom:20px}
+.countdown{gap:10px}
+.time-box{min-width:75px;padding:15px 8px;border-radius:18px}
+.time-box::before{display:none}
+.number{font-size:1.7rem}
+.label{font-size:0.75rem}
+.quote-box{font-size:0.9rem;max-width:95%;border-right-width:1px}
+.birthday-message{font-size:1.6rem;margin-top:20px}
+.love-message{font-size:1rem;margin:15px 0;padding:0 10px}
+.gift-box{font-size:3rem;margin:20px 0}
+.arrow-pointer{font-size:2rem;top:-45px}
+.gift-message{font-size:1.1rem;padding:12px 20px}
+.photo-frame{width:60px;height:60px;margin:6px}
+.photo-frame::before{font-size:1.5rem}
+.quiz-container{padding:18px 12px;margin-top:25px}
+.quiz-question{font-size:1.2rem}
+.quiz-buttons{gap:12px}
+.quiz-btn{padding:10px 20px;font-size:1rem}
+.audio-toggle{width:45px;height:45px;font-size:1.3rem;top:12px;right:12px}
+}
+
+@media (max-width:360px){
 html{font-size:12px}
-h1{font-size:2rem}
-.countdown{gap:15px}
-.time-box{min-width:80px;padding:15px}
-.number{font-size:1.8rem}
-.birthday-message{font-size:1.8rem}
-.gift-box{font-size:3.5rem}
-.gift-message{font-size:1.2rem;padding:12px 20px}
-.photo-frame{width:70px;height:70px;margin:8px}
+.container{padding:20px 12px}
+h1{font-size:1.6rem}
+.countdown{gap:8px}
+.time-box{min-width:65px;padding:12px 6px}
+.number{font-size:1.5rem}
+.birthday-message{font-size:1.4rem}
+.gift-box{font-size:2.5rem}
+.quiz-question{font-size:1.1rem}
+.quiz-btn{padding:8px 16px;font-size:0.95rem}
 }
 
 /* Animated gradient background */
@@ -100,6 +140,7 @@ max-width:900px;
 width:92%;
 z-index:2;
 animation:containerPulse 4s ease-in-out infinite;
+overflow:visible;
 }
 .container::before{
 content:"";
@@ -112,6 +153,7 @@ background:linear-gradient(45deg,#00c6ff,#0072ff,#8a2be2,#ff0080,#00c6ff);
 -webkit-mask-composite:xor;
 mask-composite:exclude;
 animation:borderRotate 4s linear infinite;
+z-index:-1;
 }
 @keyframes containerPulse{
 0%,100%{transform:scale(1)}
@@ -158,8 +200,10 @@ margin-bottom:35px;
 .countdown{
 display:flex;
 justify-content:center;
+align-items:center;
 gap:35px;
 margin-bottom:30px;
+flex-wrap:wrap;
 }
 
 .time-box{
@@ -231,6 +275,7 @@ overflow:hidden;
 margin-left:auto;
 margin-right:auto;
 width:fit-content;
+max-width:95%;
 }
 
 /* Birthday message */
@@ -437,16 +482,6 @@ background:rgba(255,255,255,0.15);
 }
 .quiz-no:active{
 transform:scale(0.95);
-}
-
-@media (max-width:768px){
-.quiz-question{font-size:1.5rem}
-.quiz-btn{padding:12px 30px;font-size:1.1rem}
-}
-@media (max-width:480px){
-.quiz-question{font-size:1.3rem}
-.quiz-btn{padding:10px 25px;font-size:1rem}
-.quiz-container{padding:20px}
 }
 
 /* Fireworks */
