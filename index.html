@@ -14,81 +14,26 @@ font-size:16px;
 }
 
 body{
-height:100vh;
-min-height:-webkit-fill-available;
-background:#000;
+min-height:100vh;
+background:linear-gradient(135deg,#0a0f1f 0%,#1a1f3a 50%,#0a0f1f 100%);
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
-overflow-y:auto;
+padding:20px;
 color:#fff;
 position:relative;
-padding:10px 0;
+overflow-x:hidden;
 }
 
 /* Mobile responsive */
 @media (max-width:768px){
-html{font-size:14px}
-.container{padding:30px 20px;width:96%;max-width:100%;border-radius:30px}
-h1{font-size:2.2rem;line-height:1.2}
-.subtitle{font-size:0.95rem}
-.names{font-size:0.95rem}
-.countdown{gap:15px;flex-wrap:nowrap}
-.time-box{min-width:90px;padding:18px 12px}
-.number{font-size:2rem}
-.label{font-size:0.8rem}
-.quote-box{font-size:1rem;max-width:90%}
-.birthday-message{font-size:2rem;line-height:1.3;padding:0 10px}
-.love-message{font-size:1.1rem;padding:0 15px}
-.gift-box{font-size:3.5rem;margin:25px 0}
-.arrow-pointer{font-size:2.5rem;top:-50px}
-.gift-message{font-size:1.2rem;padding:15px 25px;max-width:90%;margin-left:auto;margin-right:auto}
-.photo-frame{width:70px;height:70px;margin:8px}
-.photo-frame::before{font-size:2rem}
-.quiz-container{padding:20px 15px;margin-top:30px}
-.quiz-question{font-size:1.4rem;line-height:1.4}
-.quiz-btn{padding:12px 25px;font-size:1.1rem}
-.audio-toggle{width:50px;height:50px;font-size:1.5rem;top:15px;right:15px}
+html{font-size:15px}
+body{padding:15px}
 }
 
 @media (max-width:480px){
-html{font-size:13px}
-.container{padding:25px 15px;width:98%}
-h1{font-size:1.8rem;margin-bottom:10px}
-.subtitle{font-size:0.85rem;margin-bottom:15px}
-.names{font-size:0.85rem;margin-bottom:20px}
-.countdown{gap:10px}
-.time-box{min-width:75px;padding:15px 8px;border-radius:18px}
-.time-box::before{display:none}
-.number{font-size:1.7rem}
-.label{font-size:0.75rem}
-.quote-box{font-size:0.9rem;max-width:95%;border-right-width:1px}
-.birthday-message{font-size:1.6rem;margin-top:20px}
-.love-message{font-size:1rem;margin:15px 0;padding:0 10px}
-.gift-box{font-size:3rem;margin:20px 0}
-.arrow-pointer{font-size:2rem;top:-45px}
-.gift-message{font-size:1.1rem;padding:12px 20px}
-.photo-frame{width:60px;height:60px;margin:6px}
-.photo-frame::before{font-size:1.5rem}
-.quiz-container{padding:18px 12px;margin-top:25px}
-.quiz-question{font-size:1.2rem}
-.quiz-buttons{gap:12px}
-.quiz-btn{padding:10px 20px;font-size:1rem}
-.audio-toggle{width:45px;height:45px;font-size:1.3rem;top:12px;right:12px}
-}
-
-@media (max-width:360px){
-html{font-size:12px}
-.container{padding:20px 12px}
-h1{font-size:1.6rem}
-.countdown{gap:8px}
-.time-box{min-width:65px;padding:12px 6px}
-.number{font-size:1.5rem}
-.birthday-message{font-size:1.4rem}
-.gift-box{font-size:2.5rem}
-.quiz-question{font-size:1.1rem}
-.quiz-btn{padding:8px 16px;font-size:0.95rem}
+html{font-size:14px}
+body{padding:10px}
 }
 
 /* Animated gradient background */
@@ -97,14 +42,14 @@ content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:radial-gradient(circle at 20% 50%,rgba(0,140,255,0.3),transparent 50%),
-radial-gradient(circle at 80% 50%,rgba(138,43,226,0.3),transparent 50%),
-radial-gradient(circle at 50% 80%,rgba(255,0,128,0.2),transparent 50%);
+background:radial-gradient(circle at 20% 50%,rgba(0,140,255,0.15),transparent 50%),
+radial-gradient(circle at 80% 50%,rgba(138,43,226,0.15),transparent 50%);
 animation:morphGradient 15s ease-in-out infinite;
+pointer-events:none;
 }
 @keyframes morphGradient{
-0%,100%{transform:scale(1) rotate(0deg);opacity:1}
-50%{transform:scale(1.2) rotate(180deg);opacity:0.8}
+0%,100%{opacity:0.5}
+50%{opacity:1}
 }
 
 /* Starfield */
@@ -113,6 +58,7 @@ position:absolute;
 width:100%;
 height:100%;
 overflow:hidden;
+pointer-events:none;
 }
 .star{
 position:absolute;
@@ -121,222 +67,128 @@ border-radius:50%;
 animation:twinkle 3s infinite;
 }
 @keyframes twinkle{
-0%,100%{opacity:0.3;transform:scale(1)}
-50%{opacity:1;transform:scale(1.5)}
+0%,100%{opacity:0.2}
+50%{opacity:0.8}
 }
 
 .container{
 text-align:center;
-padding:60px 50px;
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(40px) saturate(180%);
-border-radius:40px;
-border:2px solid transparent;
-background-clip:padding-box;
-position:relative;
-box-shadow:0 0 100px rgba(0,140,255,0.5),
-inset 0 0 60px rgba(0,140,255,0.1);
-max-width:900px;
-width:92%;
+padding:40px 30px;
+background:rgba(10,15,31,0.7);
+backdrop-filter:blur(20px);
+border-radius:25px;
+border:1px solid rgba(0,170,255,0.3);
+box-shadow:0 8px 32px rgba(0,140,255,0.2);
+max-width:600px;
+width:100%;
 z-index:2;
-animation:containerPulse 4s ease-in-out infinite;
-overflow:visible;
-}
-.container::before{
-content:"";
-position:absolute;
-inset:-2px;
-border-radius:40px;
-padding:2px;
-background:linear-gradient(45deg,#00c6ff,#0072ff,#8a2be2,#ff0080,#00c6ff);
--webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
--webkit-mask-composite:xor;
-mask-composite:exclude;
-animation:borderRotate 4s linear infinite;
-z-index:-1;
-}
-@keyframes containerPulse{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.02)}
-}
-@keyframes borderRotate{
-0%{filter:hue-rotate(0deg)}
-100%{filter:hue-rotate(360deg)}
 }
 
 h1{
-font-size:3.5rem;
-font-weight:800;
-background:linear-gradient(90deg,#00c6ff,#0072ff,#8a2be2,#ff0080,#00c6ff);
-background-size:200% auto;
+font-size:2.5rem;
+font-weight:700;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-margin-bottom:15px;
-animation:gradientShift 3s linear infinite,titleFloat 3s ease-in-out infinite;
-text-shadow:0 0 30px rgba(0,198,255,0.5);
-filter:drop-shadow(0 0 20px rgba(0,198,255,0.6));
-}
-@keyframes gradientShift{
-0%{background-position:0% center}
-100%{background-position:200% center}
-}
-@keyframes titleFloat{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
+margin-bottom:10px;
 }
 
 .subtitle{
-opacity:.8;
-margin-bottom:25px;
+font-size:1rem;
+opacity:0.85;
+margin-bottom:15px;
 }
 
 .names{
 color:#00c6ff;
 font-weight:600;
-letter-spacing:1px;
-margin-bottom:35px;
+font-size:1rem;
+margin-bottom:30px;
 }
 
 .countdown{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:35px;
-margin-bottom:30px;
-flex-wrap:wrap;
+gap:20px;
+margin-bottom:25px;
 }
 
 .time-box{
 background:rgba(0,119,255,0.15);
-padding:30px;
-border-radius:25px;
-border:2px solid rgba(0,170,255,0.6);
-box-shadow:0 0 40px rgba(0,140,255,0.6),
-inset 0 0 20px rgba(0,198,255,0.2);
-min-width:130px;
-position:relative;
-overflow:hidden;
-transition:all 0.3s ease;
-animation:boxPulse 2s ease-in-out infinite;
-}
-.time-box::before{
-content:"";
-position:absolute;
-top:-50%;
-left:-50%;
-width:200%;
-height:200%;
-background:linear-gradient(45deg,transparent,rgba(0,198,255,0.3),transparent);
-animation:shimmer 3s linear infinite;
-}
-.time-box:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 60px rgba(0,140,255,0.9);
-}
-@keyframes boxPulse{
-0%,100%{border-color:rgba(0,170,255,0.6)}
-50%{border-color:rgba(138,43,226,0.8)}
-}
-@keyframes shimmer{
-0%{transform:rotate(0deg)}
-100%{transform:rotate(360deg)}
+padding:20px 15px;
+border-radius:15px;
+border:1px solid rgba(0,170,255,0.4);
+min-width:90px;
 }
 
 .number{
-font-size:2.8rem;
+font-size:2.5rem;
 font-weight:700;
-background:linear-gradient(135deg,#00c6ff,#0072ff,#8a2be2);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-position:relative;
-z-index:1;
-animation:numberGlow 2s ease-in-out infinite;
-}
-@keyframes numberGlow{
-0%,100%{filter:drop-shadow(0 0 10px rgba(0,198,255,0.8))}
-50%{filter:drop-shadow(0 0 20px rgba(138,43,226,0.9))}
+color:#00c6ff;
 }
 
 .label{
-font-size:.9rem;
-opacity:.85;
-margin-top:6px;
+font-size:0.85rem;
+opacity:0.8;
+margin-top:5px;
 }
 
 /* Typing quotes */
 .quote-box{
-margin-top:25px;
-font-size:1.2rem;
+margin-top:20px;
+font-size:1rem;
 color:#ccefff;
-min-height:40px;
-border-right:2px solid #00c6ff;
-white-space:nowrap;
-overflow:hidden;
-margin-left:auto;
-margin-right:auto;
-width:fit-content;
-max-width:95%;
+min-height:30px;
+opacity:0.9;
 }
 
 /* Birthday message */
 .birthday-message{
 display:none;
-font-size:3.5rem;
-margin-top:30px;
-font-weight:800;
-background:linear-gradient(90deg,#00c6ff,#0072ff,#8a2be2,#ff0080,#ffd700,#00c6ff);
-background-size:300% auto;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:epicEntrance 3s ease forwards,gradientShift 4s linear infinite,celebrationBounce 1.5s ease-in-out infinite;
-filter:drop-shadow(0 0 40px rgba(0,198,255,1)) drop-shadow(0 0 80px rgba(255,0,128,0.8));
-text-shadow:0 0 60px rgba(0,198,255,0.9);
+font-size:2.5rem;
+margin-top:25px;
+font-weight:700;
+color:#00c6ff;
+animation:fadeIn 1.5s ease forwards;
 }
-@keyframes epicEntrance{
-0%{opacity:0;transform:scale(0) rotate(-180deg);filter:blur(20px)}
-60%{transform:scale(1.3) rotate(10deg)}
-100%{opacity:1;transform:scale(1) rotate(0deg);filter:blur(0)}
-}
-@keyframes celebrationBounce{
-0%,100%{transform:translateY(0) scale(1) rotate(0deg)}
-25%{transform:translateY(-20px) scale(1.08) rotate(-3deg)}
-75%{transform:translateY(-20px) scale(1.08) rotate(3deg)}
+@keyframes fadeIn{
+0%{opacity:0;transform:scale(0.8)}
+100%{opacity:1;transform:scale(1)}
 }
 
 /* Birthday celebration container */
 .celebration-container{
 display:none;
-margin-top:40px;
+margin-top:30px;
 }
 .love-message{
-font-size:1.4rem;
+font-size:1.1rem;
 color:#ccefff;
 margin:20px 0;
 opacity:0;
-animation:fadeInUp 2s ease forwards;
-animation-delay:2s;
-line-height:1.8;
+animation:fadeInUp 1.5s ease forwards;
+animation-delay:1s;
+line-height:1.6;
 }
 @keyframes fadeInUp{
-0%{opacity:0;transform:translateY(30px)}
+0%{opacity:0;transform:translateY(20px)}
 100%{opacity:1;transform:translateY(0)}
 }
 
 .gift-box{
-font-size:5rem;
-margin:30px 0;
+font-size:4rem;
+margin:25px 0;
 opacity:0;
-animation:giftAppear 2s ease forwards,giftShake 2s ease-in-out infinite;
-animation-delay:3s,5s;
+animation:giftAppear 1.5s ease forwards;
+animation-delay:2s;
 cursor:pointer;
 display:inline-block;
-filter:drop-shadow(0 0 30px rgba(255,215,0,0.8));
-transition:transform 0.3s ease;
+transition:transform 0.2s ease;
 position:relative;
 }
 .gift-box:hover{
-transform:scale(1.2) rotate(5deg);
-filter:drop-shadow(0 0 50px rgba(255,215,0,1));
+transform:scale(1.1);
 }
 .gift-box:active{
 transform:scale(0.95);
@@ -344,69 +196,57 @@ transform:scale(0.95);
 
 .arrow-pointer{
 position:absolute;
-top:-60px;
+top:-50px;
 left:50%;
 transform:translateX(-50%);
-font-size:3rem;
+font-size:2.5rem;
 animation:bounceArrow 1s ease-in-out infinite;
-animation-delay:5s;
-filter:drop-shadow(0 0 20px rgba(255,215,0,0.8));
+animation-delay:3.5s;
 }
 @keyframes bounceArrow{
 0%,100%{transform:translateX(-50%) translateY(0)}
-50%{transform:translateX(-50%) translateY(-15px)}
+50%{transform:translateX(-50%) translateY(-10px)}
 }
 @keyframes giftAppear{
-0%{opacity:0;transform:scale(0) rotate(0deg)}
-50%{transform:scale(1.2) rotate(180deg)}
-100%{opacity:1;transform:scale(1) rotate(360deg)}
+0%{opacity:0;transform:scale(0)}
+100%{opacity:1;transform:scale(1)}
 }
 @keyframes giftShake{
-0%,100%{transform:rotate(0deg) scale(1)}
-25%{transform:rotate(-10deg) scale(1.1)}
-75%{transform:rotate(10deg) scale(1.1)}
+0%,100%{transform:rotate(0deg)}
+25%{transform:rotate(-5deg)}
+75%{transform:rotate(5deg)}
 }
 @keyframes giftExplode{
-0%{transform:scale(1) rotate(0deg)}
-50%{transform:scale(1.5) rotate(180deg)}
-100%{transform:scale(3) rotate(360deg);opacity:0}
+0%{transform:scale(1)}
+100%{transform:scale(3);opacity:0}
 }
 
 .gift-message{
-font-size:1.6rem;
+font-size:1.2rem;
 color:#ffd700;
-margin-top:20px;
+margin-top:15px;
 opacity:0;
 font-weight:600;
-animation:fadeInUp 2s ease forwards,pulse 2s ease-in-out infinite;
-animation-delay:4s,6s;
+animation:fadeInUp 1.5s ease forwards;
+animation-delay:2.5s;
+padding:12px 25px;
+border-radius:15px;
 background:rgba(255,215,0,0.1);
-padding:20px 40px;
-border-radius:20px;
-border:2px solid rgba(255,215,0,0.5);
-box-shadow:0 0 30px rgba(255,215,0,0.4);
+border:1px solid rgba(255,215,0,0.3);
 display:inline-block;
-user-select:none;
--webkit-tap-highlight-color:transparent;
-}
-@keyframes pulse{
-0%,100%{transform:scale(1);box-shadow:0 0 30px rgba(255,215,0,0.4)}
-50%{transform:scale(1.05);box-shadow:0 0 50px rgba(255,215,0,0.7)}
 }
 
 /* Photo memories */
 .photo-frame{
 display:inline-block;
-width:120px;
-height:120px;
-background:linear-gradient(135deg,#00c6ff,#8a2be2,#ff0080);
-border-radius:20px;
-margin:15px;
+width:80px;
+height:80px;
+background:linear-gradient(135deg,#00c6ff,#8a2be2);
+border-radius:15px;
+margin:10px;
 opacity:0;
 animation:photoFloat 1s ease forwards;
-box-shadow:0 0 40px rgba(0,198,255,0.6);
 position:relative;
-overflow:hidden;
 }
 .photo-frame::before{
 content:"💙";
@@ -414,12 +254,11 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:3rem;
-animation:heartBeat 1.5s ease-in-out infinite;
+font-size:2.5rem;
 }
 @keyframes photoFloat{
-0%{opacity:0;transform:translateY(50px) rotate(-10deg)}
-100%{opacity:1;transform:translateY(0) rotate(0deg)}
+0%{opacity:0;transform:translateY(30px)}
+100%{opacity:1;transform:translateY(0)}
 }
 @keyframes heartBeat{
 0%,100%{transform:translate(-50%,-50%) scale(1)}
@@ -428,54 +267,52 @@ animation:heartBeat 1.5s ease-in-out infinite;
 
 /* Quiz styles */
 .quiz-container{
-margin-top:40px;
-padding:30px;
-background:rgba(0,198,255,0.1);
-border-radius:25px;
-border:2px solid rgba(0,198,255,0.4);
-box-shadow:0 0 40px rgba(0,198,255,0.3);
+margin-top:30px;
+padding:25px 20px;
+background:rgba(0,198,255,0.08);
+border-radius:20px;
+border:1px solid rgba(0,198,255,0.3);
 opacity:0;
-animation:fadeInUp 2s ease forwards;
-animation-delay:8s;
+animation:fadeInUp 1.5s ease forwards;
+animation-delay:4s;
 display:none;
 }
 .quiz-question{
-font-size:1.8rem;
+font-size:1.4rem;
 color:#00c6ff;
-margin-bottom:25px;
+margin-bottom:20px;
 font-weight:600;
+line-height:1.4;
 }
 .quiz-buttons{
 display:flex;
-gap:20px;
+gap:15px;
 justify-content:center;
 align-items:center;
 flex-wrap:wrap;
 }
 .quiz-btn{
-padding:15px 40px;
-font-size:1.3rem;
+padding:12px 30px;
+font-size:1.1rem;
 font-weight:600;
 border:none;
-border-radius:15px;
+border-radius:12px;
 cursor:pointer;
-transition:all 0.3s ease;
+transition:all 0.2s ease;
 font-family:'Poppins',sans-serif;
 }
 .quiz-yes{
-background:linear-gradient(135deg,#00c6ff,#0072ff);
+background:#00c6ff;
 color:#fff;
-box-shadow:0 0 30px rgba(0,198,255,0.6);
 }
 .quiz-yes:hover{
 transform:scale(1.05);
-box-shadow:0 0 50px rgba(0,198,255,0.9);
+background:#0072ff;
 }
 .quiz-no{
 background:rgba(255,255,255,0.1);
 color:#fff;
-border:2px solid rgba(255,255,255,0.3);
-box-shadow:0 0 10px rgba(255,255,255,0.2);
+border:1px solid rgba(255,255,255,0.3);
 }
 .quiz-no:hover{
 background:rgba(255,255,255,0.15);
@@ -544,14 +381,14 @@ pointer-events:none;
 position:absolute;
 font-size:20px;
 animation:floatHearts 8s linear infinite;
-opacity:.8;
+opacity:0.6;
 z-index:1;
-filter:drop-shadow(0 0 8px currentColor);
+pointer-events:none;
 }
 @keyframes floatHearts{
-0%{transform:translateY(0) scale(1) rotate(0deg);opacity:0}
-20%{opacity:1}
-100%{transform:translateY(-110vh) scale(1.8) rotate(360deg);opacity:0}
+0%{transform:translateY(0);opacity:0}
+20%{opacity:0.6}
+100%{transform:translateY(-100vh);opacity:0}
 }
 
 /* Balloons */
